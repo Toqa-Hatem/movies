@@ -11,11 +11,12 @@ import { RecommendedComponent } from './recommended/recommended.component';
 import { SignComponent } from './sign/sign.component';
 import { RegisterComponent } from './register/register.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,FooterComponent ,NavComponent,HomeComponent ,DetailsComponent , 
+  imports: [ RouterOutlet,FooterComponent ,NavComponent,HomeComponent ,DetailsComponent , SearchComponent ,
     MoviesComponent,NotfoundComponent ,RecommendedComponent , SignComponent , RegisterComponent , WishlistComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
