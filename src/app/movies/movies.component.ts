@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieslistService } from '../movieslist.service';
 import { CommonModule } from '@angular/common';
 import { MovieType } from '../interfaces/movie-type';
+import { Router, RouterLink } from '@angular/router';
 // import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
@@ -14,11 +15,17 @@ import { MovieType } from '../interfaces/movie-type';
 export class MoviesComponent implements OnInit {
   recommendedMovies: MovieType[] = [];
   imgPrefix: string = 'https://image.tmdb.org/t/p/w500/';
-  constructor(private _MovieslistService: MovieslistService) {}
+  constructor(
+    private _MovieslistService: MovieslistService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this._MovieslistService.getTrending().subscribe((data) => {
       this.recommendedMovies = data.results;
       console.log(data);
     });
+  }
+  movieDetails(id: any) {
+    this.router.navigate([`details/${id}`]);
   }
 }

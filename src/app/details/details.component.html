@@ -1,1 +1,66 @@
-<p>details works!</p>
+<div class="container mt-3 d-flex justify-content-center">
+  <div class="card mb-3 p-2 w-75">
+    <div class="row g-0 mb-3">
+      @if (movie) {
+      <div class="col-md-4">
+        <img
+          [src]="imgBase + movie.poster_path"
+          class="img-fluid rounded"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8" style="flex: 1">
+        <div class="card-body">
+          <h1 class="card-title mb-0">{{ movie.title }}</h1>
+          <small class="card-text fw-light" style="margin-top: -1px">{{
+            movie.release_date
+          }}</small>
+          <p class="card-text">
+            Rating: {{ movie.vote_average }} ({{ movie.vote_count }})
+          </p>
+          <p class="card-text">{{ movie.overview }}</p>
+          <div class="card-text">
+            <div
+              class="btn card-link my-md-1 me-1 px-3 rounded-pill fw-medium"
+              style="background-color: #ffe353"
+            >
+              {{ movie.genres[0].name }}
+            </div>
+            <div
+              class="btn card-link my-md-1 me-1 px-3 rounded-pill fw-medium"
+              style="background-color: #ffe353"
+            >
+              {{ movie.genres[1].name }}
+            </div>
+            <div
+              class="btn card-link my-md-1 me-1 px-3 rounded-pill fw-medium"
+              style="background-color: #ffe353"
+            >
+              {{ movie.genres[2].name }}
+            </div>
+          </div>
+          <div class="card-text d-flex flex-xl-row flex-column">
+            <small
+              ><span class="fw-bold">Duration:</span>
+              <span class="fw-medium ms-2">{{ movie.runtime }}</span></small
+            >
+            <small
+              ><span class="fw-bold ms-xl-5">Languages:</span>
+              @for (language of movie.spoken_languages;track $index) {
+              <span class="fw-medium ms-2"> {{ language.name }}</span>
+              @if (!$last) {<span>,</span>} }</small
+            >
+          </div>
+          <div class="mt-5 col-xl-6 col-lg-5 col-md-6">
+            <img
+              [src]="imgBase + movie.production_companies[0].logo_path"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
