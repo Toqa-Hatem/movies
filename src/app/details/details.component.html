@@ -20,24 +20,14 @@
           </p>
           <p class="card-text">{{ movie.overview }}</p>
           <div class="card-text">
+            @for (genre of movie.genres; track $index) {
             <div
               class="btn card-link my-md-1 me-1 px-3 rounded-pill fw-medium"
               style="background-color: #ffe353"
             >
-              {{ movie.genres[0].name }}
+              {{ genre.name }}
             </div>
-            <div
-              class="btn card-link my-md-1 me-1 px-3 rounded-pill fw-medium"
-              style="background-color: #ffe353"
-            >
-              {{ movie.genres[1].name }}
-            </div>
-            <div
-              class="btn card-link my-md-1 me-1 px-3 rounded-pill fw-medium"
-              style="background-color: #ffe353"
-            >
-              {{ movie.genres[2].name }}
-            </div>
+            }
           </div>
           <div class="card-text d-flex flex-xl-row flex-column">
             <small
@@ -47,16 +37,12 @@
             <small
               ><span class="fw-bold ms-xl-5">Languages:</span>
               @for (language of movie.spoken_languages;track $index) {
-              <span class="fw-medium ms-2"> {{ language.name }}</span>
+              <span class="fw-medium ms-2"> {{ language.english_name }}</span>
               @if (!$last) {<span>,</span>} }</small
             >
           </div>
           <div class="mt-5 col-xl-6 col-lg-5 col-md-6">
-            <img
-              [src]="imgBase + movie.production_companies[0].logo_path"
-              alt=""
-              class="img-fluid"
-            />
+            <img [src]="imgBase + companyLogo" alt="" class="img-fluid" />
           </div>
         </div>
       </div>
