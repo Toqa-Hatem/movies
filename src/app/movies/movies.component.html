@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row py-5 gap-3 justify-content-center">
+    <p class="fw-bold fs-5">popular movies</p>
     <div
       *ngFor="let movie of recommendedMovies"
-      class="col-md-2 card"
-      style="width: 15rem"
+      class="col-md-2 card-title border p-0"
+      style="width: 14rem"
     >
       <img
         class="img-fluid"
@@ -11,20 +12,18 @@
         style="cursor: pointer"
         (click)="movieDetails(movie.id)"
       />
-
-      <!-- movies.component.html -->
       <div class="circle-progress">
-        <h5 class="percentage fw-bolder">
+        <h5 class="percentage fw-bolder px-3">
           {{ movie.vote_average.toFixed(1) }}<sup>%</sup>
         </h5>
       </div>
 
-      <h4 style="font-size: 1.2vw">{{ movie.title }}</h4>
-      <h6 class="text-secondary" style="font-size: 1vw">
+      <h4 class="px-3 fs-6">{{ movie.title }}</h4>
+      <h6 class="text-secondary px-3" style="font-size: 1vw">
         {{ movie.release_date }}
       </h6>
       <div class="heart d-flex justify-content-end">
-        <i class="fa-regular fa-heart text-end"></i>
+        <i class="fa-regular fa-heart text-end px-3"></i>
       </div>
     </div>
   </div>
