@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MovieslistService } from '../movieslist.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { RecommendedMovieType } from '../interfaces/movie-type';
 
 @Component({
   selector: 'app-recommended',
@@ -17,7 +18,7 @@ export class RecommendedComponent {
     private _activatedRoute: ActivatedRoute
   ) {}
   @Input() id!: number;
-  recommendedMovies!: any[];
+  recommendedMovies!: RecommendedMovieType[];
   imgBase: string = 'https://image.tmdb.org/t/p/w500/';
   ngOnInit() {
     this._activatedRoute.params.subscribe((params) => {
