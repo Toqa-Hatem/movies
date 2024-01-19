@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MovieslistService } from '../movieslist.service';
 import test from 'node:test';
+import { MovieDetails } from '../interfaces/movie-details';
 @Component({
   selector: 'app-details',
   standalone: true,
@@ -10,7 +11,7 @@ import test from 'node:test';
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
-  movie: any;
+  movie!: MovieDetails;
   id!: number;
   imgBase: string = 'https://image.tmdb.org/t/p/w500/';
   companyLogo!: any[];
