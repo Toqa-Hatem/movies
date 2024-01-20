@@ -1,3 +1,5 @@
+
+<app-search></app-search>
 <div class="container">
   <div class="row py-5 gap-3 justify-content-center">
     <p class="fw-bold fs-5">popular movies</p>
@@ -18,9 +20,9 @@
         </h5>
       </div>
 
-      <h4 class="px-3 fs-6">{{ movie.title }}</h4>
+      <h4 class="px-3 fs-6">{{ movie.title | uppercase }}</h4>
       <h6 class="text-secondary px-3" style="font-size: 1vw">
-        {{ movie.release_date }}
+        {{ movie.release_date | date }}
       </h6>
       <div class="heart d-flex justify-content-end">
         <i class="fa-regular fa-heart text-end px-3"></i>
