@@ -23,7 +23,10 @@
         {{ movie.release_date }}
       </h6>
       <div class="heart d-flex justify-content-end">
-        <i class="fa-regular fa-heart text-end px-3"></i>
+        <i
+          class="fa-regular fa-heart text-end px-3"
+          (click)="addToWishlist(movie)"
+        ></i>
       </div>
     </div>
   </div>

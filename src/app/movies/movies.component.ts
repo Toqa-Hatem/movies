@@ -3,6 +3,7 @@ import { MovieslistService } from '../movieslist.service';
 import { CommonModule } from '@angular/common';
 import { MovieType } from '../interfaces/movie-type';
 import { Router, RouterLink } from '@angular/router';
+import { WishlistService } from '../wishlist.service';
 // import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
@@ -15,9 +16,11 @@ import { Router, RouterLink } from '@angular/router';
 export class MoviesComponent implements OnInit {
   recommendedMovies: MovieType[] = [];
   imgPrefix: string = 'https://image.tmdb.org/t/p/w500/';
+
   constructor(
     private _MovieslistService: MovieslistService,
-    private router: Router
+    private router: Router,
+    private _wishlistService: WishlistService
   ) {}
   ngOnInit(): void {
     this._MovieslistService.getTrending().subscribe((data) => {
@@ -27,5 +30,8 @@ export class MoviesComponent implements OnInit {
   }
   movieDetails(id: any) {
     this.router.navigate([`details/${id}`]);
+  }
+  addToWishlist(movie: MovieType) {
+    this._wishlistService.addToWishlist(movie);
   }
 }
