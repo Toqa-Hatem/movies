@@ -3,6 +3,8 @@ import { MovieslistService } from '../movieslist.service';
 import { CommonModule } from '@angular/common';
 import { MovieType } from '../interfaces/movie-type';
 import { Router, RouterLink } from '@angular/router';
+import { WishlistService } from '../wishlist.service';
+import { SearchComponent } from '../search/search.component';
 // import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
