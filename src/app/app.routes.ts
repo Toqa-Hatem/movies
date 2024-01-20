@@ -12,6 +12,7 @@ import { SignComponent } from './sign/sign.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: 'nav', component: NavComponent, title: 'nav' },
   { path: 'footer', component: FooterComponent, title: 'footer' },
   { path: 'movies', component: MoviesComponent, title: 'movies' },
