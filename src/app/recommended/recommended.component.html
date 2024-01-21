@@ -1,36 +1,33 @@
 <div class="container">
-  <div class="row py-5 gap-3 justify-content-around">
+  <div class="row py-5 justify-content-center">
     @if (recommendedMovies&&recommendedMovies.length > 0) {
     <p class="fw-bold fs-5">Recommended movies:</p>
     @for (movie of recommendedMovies; track $index) {
-    <div class="col-md-2 card-title border p-0" style="width: 14rem">
-      <img
-        class="img-fluid rounded"
-        [src]="imgBase + movie.poster_path"
-        style="cursor: pointer"
-        (click)="movieDetails(movie.id)"
-      />
-      <div class="circle-progress">
-        <h5 class="percentage fw-bolder px-3">
+    <div class="col-md-3">
+      <div class="card mb-5"> 
+      <img class="img-fluid rounded" [src]="imgBase + movie.poster_path" style="cursor: pointer"
+        (click)="movieDetails(movie.id)" />
+        <div class="card-body justify-content-between d-flex">
+          <div class="circle-progress pt-2 border border-success">
+            <h5 class="percentage fw-bolder ">
           {{ movie.vote_average.toFixed(1) }}<sup>%</sup>
         </h5>
       </div>
 
-      <h4 class="px-3 fs-6">{{ movie.title }}</h4>
-      <h6 class="text-secondary px-3" style="font-size: 1vw">
-        {{ movie.release_date }}
-      </h6>
-      <div class="heart d-flex justify-content-end">
-        <i
-          [ngClass]="
+      <h4 class="fs-6">{{ movie.title |uppercase}}</h4>
+     
+      <div class="heart d-flex justify-content-between">
+        <h6 class="text-secondary fs-6" >
+          {{ movie.release_date | date }}
+        </h6>
+        <i [ngClass]="
             movie.flag
-              ? 'fa-solid fa-heart text-end px-3'
-              : 'fa-regular fa-heart text-end px-3'
-          "
-          (click)="wishlistCheck(movie)"
-          style="cursor: pointer; color: rgb(232, 188, 31)"
-        ></i>
+              ? 'fa-solid fa-heart text-end fs-6'
+              : 'fa-regular fa-heart text-end fs-6 '
+          " (click)="wishlistCheck(movie)" style="cursor: pointer; color: rgb(232, 188, 31)"></i>
       </div>
+      </div>
+    </div>
     </div>
     }}@else {
     <p class="fw-bold fs-5">This movie has no recommendations</p>

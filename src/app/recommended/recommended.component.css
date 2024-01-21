@@ -1,0 +1,20 @@
+h5 {
+    font-size: 1vw;
+    color: white;
+  }
+  .card-body{
+    position: relative;
+    min-height: 152px;
+    flex-direction: column;
+  
+  }
+  .circle-progress{
+    background-color: rgba(0, 0, 0, 0.742);
+    position: absolute;
+    top:-16%;
+    left: 83%;
+    padding-left: 5px;
+    width: 3vw;
+    height: auto;
+    border-radius: 50%;
+  }
