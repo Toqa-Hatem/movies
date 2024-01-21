@@ -1,16 +1,7 @@
 a {
-  font-size: 14px;
   font-weight: 700;
 }
-.superNav {
-  font-size: 13px;
-}
-.fa-film {
-  font-size: 2vw;
-}
-.strong {
-  font-size: 1.8vw;
-}
+
 ul li a {
   font-size: 1.2vw;
 }
@@ -18,8 +9,4 @@ ul li a:hover {
   color: rgb(226, 155, 2);
   cursor: pointer;
 }
-@media screen and (max-width: 540px) {
-  .centerOnMobile {
-    text-align: center;
-  }
-}
+
