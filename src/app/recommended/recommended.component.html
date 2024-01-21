@@ -21,7 +21,15 @@
         {{ movie.release_date }}
       </h6>
       <div class="heart d-flex justify-content-end">
-        <i class="fa-regular fa-heart text-end px-3"></i>
+        <i
+          [ngClass]="
+            movie.flag
+              ? 'fa-solid fa-heart text-end px-3'
+              : 'fa-regular fa-heart text-end px-3'
+          "
+          (click)="wishlistCheck(movie)"
+          style="cursor: pointer; color: rgb(232, 188, 31)"
+        ></i>
       </div>
     </div>
     }}@else {

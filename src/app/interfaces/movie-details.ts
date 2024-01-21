@@ -1,9 +1,10 @@
-export interface MovieDetails {
+export interface Movie {
+  flag: boolean;
   adult: boolean;
   backdrop_path: string;
-  belongs_to_collection: Belongs_to_collection;
+  belongs_to_collection?: Belongs_to_collection;
   budget: number;
-  genres: Genres[];
+  genres?: Genres[];
   homepage: string;
   id: number;
   imdb_id: string;
@@ -17,7 +18,7 @@ export interface MovieDetails {
   release_date: Date;
   revenue: number;
   runtime: number;
-  spoken_languages: Spoken_languages[];
+  spoken_languages?: Spoken_languages[];
   status: string;
   tagline: string;
   title: string;

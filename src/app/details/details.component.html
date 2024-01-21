@@ -12,6 +12,19 @@
       <div class="col-md-8" style="flex: 1">
         <div class="card-body">
           <h1 class="card-title mb-0">{{ movie.title }}</h1>
+
+          <div>
+            <i
+              [ngClass]="
+                movie.flag
+                  ? 'fa-solid fa-heart text-end px-3'
+                  : 'fa-regular fa-heart text-end px-3'
+              "
+              (click)="wishlistCheck(movie)"
+              style="cursor: pointer; color: rgb(232, 188, 31)"
+            ></i>
+          </div>
+
           <small class="card-text fw-light" style="margin-top: -1px">{{
             movie.release_date
           }}</small>
@@ -42,7 +55,12 @@
             >
           </div>
           <div class="mt-5 col-xl-6 col-lg-5 col-md-6">
-            <img [src]="imgBase + companyLogo" alt="" class="img-fluid" />
+            <img
+              [src]="imgBase + companyLogo"
+              alt=""
+              class="img-fluid"
+              style="max-height: 10rem"
+            />
           </div>
         </div>
       </div>
@@ -50,5 +68,5 @@
     </div>
   </div>
 </div>
-<hr>
+<hr />
 <app-recommended [id]="id"></app-recommended>

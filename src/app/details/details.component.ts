@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MovieslistService } from '../movieslist.service';
-import { MovieDetails } from '../interfaces/movie-details';
+import { Movie } from '../interfaces/movie-details';
 import { RecommendedComponent } from '../recommended/recommended.component';
 import { Router } from '@angular/router';
+import { WishlistService } from '../wishlist.service';
+import { CommonModule } from '@angular/common';
+import { MovieType } from '../interfaces/movie-type';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RouterLink, RecommendedComponent],
+  imports: [RouterLink, RecommendedComponent, CommonModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
-  movie!: MovieDetails;
+  movie!: Movie;
   id!: number;
   imgBase: string = 'https://image.tmdb.org/t/p/w500/';
   companyLogo!: any[];
@@ -22,11 +25,12 @@ export class DetailsComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private _moviesListService: MovieslistService,
-    private _router: Router
+    private _router: Router,
+    private _wishlistService: WishlistService
   ) {}
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
-      this.id = params['id'];
+      this.id = parseInt(params['id']);
       this.reloadData(this.id);
     });
   }
@@ -39,6 +43,13 @@ export class DetailsComponent {
       if (this.companyLogoArr.length) {
         this.companyLogo = this.companyLogoArr[0].logo_path;
       }
+      let wishlistMovieIds = this._wishlistService.wishlistIds();
+      if (wishlistMovieIds.includes(id)) {
+        this.movie.flag = true;
+      }
     });
+  }
+  wishlistCheck(movie: Movie) {
+    this._wishlistService.wishlistCheck(movie);
   }
 }

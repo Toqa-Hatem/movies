@@ -1,4 +1,5 @@
 export interface MovieType {
+  flag: boolean;
   adult: boolean;
   backdrop_path: string;
   genre_ids: string[];
